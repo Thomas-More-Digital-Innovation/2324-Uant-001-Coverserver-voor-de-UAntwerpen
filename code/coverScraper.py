@@ -57,14 +57,13 @@ def downloadimages(covers, path):
         full_path = os.path.join(path, f"{file_name}.jpg")
 
         urllib.request.urlretrieve(url, full_path)
-        #if x == 4:
         print(url)
         x += 1
         print(full_path)
 
 
 path_goede_covers = r"C:\goede_covers"
-path_slechte_covers = r"C:\slechte_covers"
+path_slechte_covers = r"C:\locked_covers"
 
 downloadimages(goede_covers, path_goede_covers)
 # downloadimages(locked_covers, path_slechte_covers)
