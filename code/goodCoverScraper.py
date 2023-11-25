@@ -13,9 +13,12 @@ path_goede_covers = r"C:\goede_covers"
 # goede covers query
 goede_covers_query = """
 SELECT 
-    JSON_EXTRACT(changes, '$.new_cover_url') AS new_cover_url
+    JSON_EXTRACT(changes, '$.new_cover_url') AS new_cover_url,
+	cn.number,
+	cn.number_type
 FROM 
-    cover_covernumberlog
+    cover_covernumberlog cl
+	JOIN cover_covernumber cn ON cl.id = cn.id
 WHERE 
 	JSON_EXTRACT(changes, '$.new_cover_url') IS NOT NULL
     AND JSON_EXTRACT(changes, '$.new_cover_url') NOT LIKE '%cipal%'
@@ -29,22 +32,22 @@ conn.close()
 
 
 def downloadimages(covers, path):
-    i = 1
     for cover in covers:
         url = cover[0]  # Extract de URL van de tuple
-        file_name = f"{i}.jpg"
+        number = cover[1]
+        type = cover[2]
+        file_name = f"{type}{number}.jpg"
         full_path = os.path.join(path, file_name)
 
         try:
             urllib.request.urlretrieve(url, full_path)
-            print(f"Downloaded image {i}: {url}")
+            print(f"Downloaded image {file_name}: {url}")
         except urllib.error.HTTPError as error:
             if error.code == 410:
-                print(f"Image {i} is no longer available: {url}")
+                print(f"Image {file_name} is no longer available: {url}")
             else:
-                print(f"Error downloading image {i}: {url}")
+                print(f"Error downloading image {file_name}: {url}")
                 print(f"Error details: {error}")
-        i += 1
 
 
 downloadimages(goede_covers, path_goede_covers)
