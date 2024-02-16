@@ -1,0 +1,24 @@
+notities contactmoment 16/2:
+
+project moet in een aparte folder, niet onder cover.
+
+Wat moet er in de views kunnen gebeuren:
+    - Een lijst met kunnen ophalen van covers gescraped  tussen parameters “vanDatum” en “totDatum”.
+    - Een extra filteroptie voor “goed” of “slecht” is ook nodig.
+    - Een score op 10 en een annotatie moet gegeven kunnen worden.
+
+code kwaliteitschecks:
+    - pipeline flake8, draai deze lokaal om te bepalen welke standaarden worden opgelegd.
+
+Momenteel verdwijnen slechte covers uit de database. 
+Om meer metadata op te slaan en een beter model te creëren, moet er een score van 1 tot 10 toegevoegd worden aan de covers.
+Er moet ook een annotatie toegevoegd worden waarom een cover als slecht wordt beschouwd (bijvoorbeeld onscherp, generiek, fout boek, bijsnijden vereist).
+
+Er moet dus extra data opgeslagen worden:
+    - score op 10 (extra kolom tabel "cover_coverimage")
+    - de annotatie (nieuwe tabel "cover_badcoverimage")
+    - de source url, moest deze niet al opgeslagen worden
+      cover bestaat (verwijst naar tabel "cover_coverimage")
+      cover bestaat niet (opslagen in "cover_badcoverimage")
+
+(We gaan dus ook een link moeten leggen tussen de cover applicatie en de mijne.)
