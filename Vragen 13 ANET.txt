@@ -1,0 +1,16 @@
+Vragen 1/3 ANET
+
+- Hoe run ik lokaal de flake8 code checks?
+docker run --rm -v `pwd`:/library/porrima porrima_web:latest flake8
+returned niets
+
+- Hoe moet de database werken, moet themis een appart project zijn met zijn eigen database of 
+moet ik die van cover aanspreken? Is dit mogelijk en hoe?
+
+Wat moet er in de templates kunnen gebeuren:
+    - Een lijst met kunnen ophalen van covers gescraped  tussen parameters “vanDatum” en “totDatum”.
+    - Kunnen filteren op "te veel witruimte", "gedraaid", "slechte kwaliteit", "Fake cover", maar ook algemeen "slecht", dat deze moet groeperen.
+
+Is dit voor in cover of in themis?
+
+Maak ik de themis applicatie, die op basis van een afbeelding een waarde/dict teruggeeft tussen 0 & 1 dat goed en slecht voorstellen?
