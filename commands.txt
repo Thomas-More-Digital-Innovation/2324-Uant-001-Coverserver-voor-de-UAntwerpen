@@ -1,0 +1,15 @@
+migratie voor specifieke db
+python manage.py makemigrations
+python manage.py migrate cover --database=cover_db
+
+http://localhost:8014/cover/choose/b/isbn/9780444594044
+http://localhost:8014/cover/choose/b/isbn/9780444594044?datefrom=2024-01-29&dateto=2024-02-23
+
+docker container aan terminal
+docker ps 
+docker attach "the id"
+
+tests runnen
+docker build -t porrima_web:latest .
+docker run --rm -v ${pwd}:/library/porrima porrima_web:latest flake8
+docker run --rm -e PORRIMA_ENV_FILE=/library/porrima/env/test.env -v ${pwd}:/library/porrima porrima_web:latest pytest --cov=/library/porrima/cover --cov=/library/porrima/stats --cov=/library/porrima/brocade --cov=/library/porrima/api/client --cov=/library/porrima/api/numbertype --cov-report=term-missing:skip-covered /library/porrima
