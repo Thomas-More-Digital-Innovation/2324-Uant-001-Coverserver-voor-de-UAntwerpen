@@ -1,4 +1,4 @@
-# script to delete non jpg files from my drive
+# script to delete non jpg files
 import os
 from pydrive.auth import GoogleAuth
 from pydrive.drive import GoogleDrive
