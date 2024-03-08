@@ -4,7 +4,6 @@
 ```
 docker build -t porrima_web:latest .
 docker run --rm -v ${pwd}:/library/porrima porrima_web:latest flake8
-
 ```
 
 (.git folder hooks, pre-commit hooks is iets om te onderzoeken.
