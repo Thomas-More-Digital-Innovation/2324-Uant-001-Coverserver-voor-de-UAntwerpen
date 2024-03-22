@@ -1,0 +1,37 @@
+{% extends 'cover/base.html' %}
+
+{% block content %}
+
+    <h1>List of bad covers</h1>
+
+    <form method="GET">
+        {{ form }}
+        <input type="submit" value="filter" class="btn btn-primary">
+    </form>
+
+    <hr/>
+
+    <table>
+        <thead>
+        <tr>
+            <th>number_type</th>
+            <th>cover_image</th>
+            <th>date_added</th>
+            <th>annotation</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        {% for badcover in badcovers %}
+            <tr>
+                <td>{{ badcover.number_type }}</td>
+                <td>{{ badcover.cover_image.url }}</td>
+                <td>{{ badcover.date_added }}</td>
+                <td>{{ badcover.annotation }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+
+    </table>
+  
+{% endblock %}
