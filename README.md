@@ -27,7 +27,6 @@ maar zowel naar klanten als beheerders toe kan hier nog aan verbeterd worden.
 
 Door een ML-model te trainen wordt het onderscheiden van goede en slechte covers vergemakkelijkt.
 
-
 ## Mogelijke toekomstige projecten DI voor Anet
 *(in overeenstemming met Bart Moelans van Anet)*
 
